@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css' %}">
+    <title>First app</title>
+</head>
+<body>
+    <h1>hey this is me practicing MVT</h1>
+    <h2>here are the accessed records</h2>
+    <div class="djangotwo">
+        {% if access_records %}
+            <table>
+                <thead>
+                    <th>site name</th>
+                    <th>date accessed</th>   
+                </thead>
+                {% for acc in access_records %}
+                <tr>
+                    <td>{{ acc.name }}</td>
+                    <td>{{ acc.date }}</td>
+                </tr>
+                {% endfor %}    
+            </table>
+            {% else %}
+            <p>no access records found</p>
+            {% endif %}
+    </div>
+</body>
+</html>
